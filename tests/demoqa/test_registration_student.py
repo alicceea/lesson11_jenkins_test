@@ -2,7 +2,7 @@ from pathlib import Path
 from time import sleep
 
 import allure
-from selene import have, be, by, browser
+from selene import have, be, by
 
 
 @allure.title("Successful fill form")
