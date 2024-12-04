@@ -34,6 +34,7 @@ def setup_browser_remote():
     attach.add_screenshot(my_browser)
     attach.add_logs(my_browser)
     attach.add_html(my_browser)
+    attach.add_video(my_browser)
 
 
     my_browser.quit()
