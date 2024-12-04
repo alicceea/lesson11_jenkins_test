@@ -31,9 +31,9 @@ def setup_browser_remote():
 
     yield my_browser
 
-    attach.add_screenshot()
-    attach.add_logs()
-    attach.add_html()
+    attach.add_screenshot(my_browser)
+    attach.add_logs(my_browser)
+    attach.add_html(my_browser)
 
 
     my_browser.quit()
