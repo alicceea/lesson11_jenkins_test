@@ -5,6 +5,9 @@ from selenium.webdriver import FirefoxOptions
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selene import Browser, Config
+from selenium.webdriver.common.devtools.v129.target import attach_to_browser_target
+
+from utils import attach
 
 
 @pytest.fixture(scope='function')
@@ -27,6 +30,11 @@ def setup_browser_remote():
     my_browser = Browser(Config(driver=driver))
 
     yield my_browser
+
+    attach.add_screenshot()
+    attach.add_logs()
+    attach.add_html()
+
 
     my_browser.quit()
 
