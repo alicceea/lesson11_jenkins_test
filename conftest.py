@@ -40,18 +40,18 @@ def setup_browser_remote():
     my_browser.quit()
 
 #
-# @pytest.fixture(scope='function')
-# def setup_browser_local():
-#     browser.config.driver_name = 'firefox'
-#     browser.config.base_url = 'https://demoqa.com'
-#     browser.config.timeout = 7.0
-#     options = FirefoxOptions()
-#     options.add_argument("--width=1920")
-#     options.add_argument("--height=1080")
-#     options.timeouts = {'pageLoad': 3000}
-#     options.page_load_strategy = 'none'
-#     browser.config.driver_options = options
-#
-#     yield
-#
-#     browser.quit()
+@pytest.fixture(scope='function')
+def setup_browser_local():
+    browser.config.driver_name = 'firefox'
+    browser.config.base_url = 'https://demoqa.com'
+    browser.config.timeout = 7.0
+    options = FirefoxOptions()
+    options.add_argument("--width=1920")
+    options.add_argument("--height=1080")
+    options.timeouts = {'pageLoad': 3000}
+    options.page_load_strategy = 'none'
+    browser.config.driver_options = options
+
+    yield
+
+    browser.quit()
