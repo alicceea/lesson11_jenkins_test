@@ -34,7 +34,7 @@ def test_send_practice_form(setup_browser_remote):
     browser.element('#userNumber').should(be.blank).type(phone_number)
 
     #
-    # browser.element("input[type='file']").send_keys(f"{Path(__file__).parent.parent}\\resource\\{file_name}")
+    browser.element("input[type='file']").send_keys(f"{Path(__file__).parent.parent}\\resource\\{file_name}")
 
     browser.element('#dateOfBirthInput').click()
     browser.element('.react-datepicker__header').element('.react-datepicker__month-select').element(by.text(month)).click()
