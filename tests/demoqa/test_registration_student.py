@@ -20,11 +20,11 @@ def test_send_practice_form(setup_browser_remote):
     phone_number = '1135485499'
     day, month, year = '16', 'July', '2007'
     subject = 'Maths'
-    file_name = 'attachment.txt'
+    file_name = '../../attachment.txt'
     address = '433 Barry Village Suite 631'
     state, city = 'NCR', 'Delhi'
 
-    file = Path('attachment.txt').resolve()
+    file = Path('../../attachment.txt').resolve()
 
     # Filling
     browser.element('#firstName').should(be.blank).type(name)
