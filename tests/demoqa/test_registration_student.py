@@ -2,12 +2,12 @@ from pathlib import Path
 from time import sleep
 
 import allure
-from selene import have, be, by,browser
+from selene import have, be, by
 
 
 @allure.title("Successful fill form")
-def test_send_practice_form(setup_browser_local):
-    # browser = setup_browser_remote
+def test_send_practice_form(setup_browser_remote):
+    browser = setup_browser_remote
     browser.open("https://demoqa.com/automation-practice-form")
     browser.element(".practice-form-wrapper").should(have.text("Student Registration Form"))
     browser.driver.execute_script("$('footer').remove()")
