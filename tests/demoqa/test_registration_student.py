@@ -2,12 +2,12 @@ from pathlib import Path
 from time import sleep
 
 import allure
-from selene import have, be, by, browser
+from selene import have, be, by,browser
 
 
 @allure.title("Successful fill form")
 def test_send_practice_form(setup_browser_local):
-    # browser = setup_browser_local
+    # browser = setup_browser_remote
     browser.open("https://demoqa.com/automation-practice-form")
     browser.element(".practice-form-wrapper").should(have.text("Student Registration Form"))
     browser.driver.execute_script("$('footer').remove()")
@@ -24,6 +24,8 @@ def test_send_practice_form(setup_browser_local):
     address = '433 Barry Village Suite 631'
     state, city = 'NCR', 'Delhi'
 
+    file = Path('attachment.txt').resolve()
+
     # Filling
     browser.element('#firstName').should(be.blank).type(name)
     browser.element('#lastName').should(be.blank).type(surname)
@@ -34,7 +36,8 @@ def test_send_practice_form(setup_browser_local):
     browser.element('#userNumber').should(be.blank).type(phone_number)
 
     #
-    browser.element("input[type='file']").send_keys(f"{Path(__file__).parent.parent}\\resource\\{file_name}")
+    # browser.element("input[type='file']").send_keys(f"{Path(__file__).parent.parent}\\resource\\{file_name}")
+    browser.element("input[type='file']").send_keys(f"{file}")
 
     browser.element('#dateOfBirthInput').click()
     browser.element('.react-datepicker__header').element('.react-datepicker__month-select').element(by.text(month)).click()
