@@ -20,11 +20,11 @@ def test_send_practice_form(setup_browser_remote):
     phone_number = '1135485499'
     day, month, year = '16', 'July', '2007'
     subject = 'Maths'
-    file_name = '../../attachment.txt'
+    file_name = '../resource/attachment.txt'
     address = '433 Barry Village Suite 631'
     state, city = 'NCR', 'Delhi'
 
-    file = Path('../../attachment.txt').resolve()
+    # file = Path('../resource/attachment.txt').resolve()
 
     # Filling
     browser.element('#firstName').should(be.blank).type(name)
@@ -37,7 +37,7 @@ def test_send_practice_form(setup_browser_remote):
 
     #
     # browser.element("input[type='file']").send_keys(f"{Path(__file__).parent.parent}\\resource\\{file_name}")
-    browser.element("input[type='file']").send_keys(f"{file}")
+    # browser.element("input[type='file']").send_keys(f"{file}")
 
     browser.element('#dateOfBirthInput').click()
     browser.element('.react-datepicker__header').element('.react-datepicker__month-select').element(by.text(month)).click()
